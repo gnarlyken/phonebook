@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="maintitle">Phone Book</title>
-    <style>
-        .maintitle {
-            color: blue;
-        }
+    <title>Phone Book</title>
+    <style> 
+    body{
+        background-color: rgb(217, 217, 217);
+    }
+    h1{
+        color: cadetblue;
+        text-align: center;
+        
+    }
+    .container{
+        margin: auto;
+        width: 50%;
+        border: 3px solid green;
+        padding: 10px;
+    }
     </style>
 </head>
 <body>
