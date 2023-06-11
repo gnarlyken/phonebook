@@ -1,15 +1,16 @@
 @extends('contacts.app')
 
 @section('content')
-
     <div class="container">
+    <div class="slogan">
         <h1>Phone Book</h1>
-        <a href="{{ route('contacts.create') }}" class="btn btn-primary mb-3">Add Contact</a>
-        
+    </div>
+        <a href="{{ route('contacts.create') }}" class="addcontact">Add Contact</a>
+        <div class="text-center">
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
-        
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -21,7 +22,7 @@
             </thead>
             <tbody>
                 @foreach ($contacts as $contact)
-                    <tr>
+                    <tr class="textintable">
                         <td>{{ $contact->name }}</td>
                         <td>{{ $contact->phone_number }}</td>
                         <td>{{ $contact->email }}</td>

@@ -17,6 +17,7 @@
         <form action="{{ route('contacts.update', $contact) }}" method="POST">
             @csrf
             @method('PUT')
+        <div class="editbox">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="form-control" value="{{ $contact->name }}" required>
@@ -31,6 +32,7 @@
             </div>
             <!-- Add other relevant fields -->
             <button type="submit" class="btn btn-primary">Update</button>
+            </div>
         </form>
     </div>
 @endsection

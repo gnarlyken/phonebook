@@ -14,11 +14,52 @@
         
     }
     .container{
-        margin: auto;
+
+        
+    }
+    .table{
         width: 50%;
-        border: 3px solid cadetblue;
+        margin: auto;
         padding: 10px;
     }
+    a.addcontact{
+        text-align: center;
+        display: block;
+        margin-top: 2%;
+        margin-bottom: 3%;
+    }
+    
+    .textintable{
+        text-align: center;
+    }
+    .slogan{
+        
+        border: 2px solid cadetblue;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        margin: auto;
+        width: 50%;
+        display: block;
+        padding: 10px;
+
+    }
+    .text-center{
+        text-align: center;
+        color: green;
+        margin-bottom: 1%;
+    }
+   .editbox{
+        width: 17%;
+        margin: auto;
+        padding: 16px;
+   }
+   .addbox{
+        width: 17%;
+        margin: auto;
+        padding: 16px;
+   }
+   
     </style>
 </head>
 <body>

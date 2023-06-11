@@ -16,6 +16,7 @@
         
         <form action="{{ route('contacts.store') }}" method="POST">
             @csrf
+            <div class="addbox"> 
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="form-control" required>
@@ -30,6 +31,7 @@
             </div>
             <!-- Add other relevant fields -->
             <button type="submit" class="btn btn-primary">Add</button>
+            </div>
         </form>
     </div>
 @endsection
