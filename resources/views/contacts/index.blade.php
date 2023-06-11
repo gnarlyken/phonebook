@@ -39,5 +39,6 @@
         </table>
         
         {{ $contacts->links() }}
+        
     </div>
 @endsection
