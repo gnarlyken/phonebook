@@ -13,10 +13,7 @@
         text-align: center;
         
     }
-    .container{
-
-        
-    }
+   
     .table{
         width: 50%;
         margin: auto;
