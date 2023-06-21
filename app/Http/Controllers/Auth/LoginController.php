@@ -24,12 +24,13 @@ class LoginController extends Controller
         // Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
             // Authentication successful, redirect to index.blade.php
-            return redirect()->route('index');
+            return redirect()->route('app');
         } else {
             // Authentication failed, redirect back to login page with error message
             return redirect()->route('login')->with('error', 'Invalid credentials');
         }
     }
+    
 
     public function logout()
     {
