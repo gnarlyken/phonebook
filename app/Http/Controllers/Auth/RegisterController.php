@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 
-use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -23,13 +22,13 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
-
+    
         $user = new User();
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
-        $user->password = Hash::make($validatedData['password']);
+        $user->password = $validatedData['password']; // Save the password as plain text
         $user->save();
-
+    
         // Redirect the user to the desired page after successful registration
         return redirect()->route('login')->with('success', 'Registration successful. Please log in.');
     }
