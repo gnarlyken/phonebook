@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -15,26 +16,23 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // Validate the login credentials
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-        // Attempt to authenticate the user
-        if (Auth::attempt($credentials)) {
-            // Authentication successful, redirect to index.blade.php
-            return redirect()->route('app');
+    
+        $email = $credentials['email'];
+        $password = $credentials['password'];
+    
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            // Authentication passed
+            return redirect()->route('contacts.index');
         } else {
-            // Authentication failed, redirect back to login page with error message
-            return redirect()->route('login')->with('error', 'Invalid credentials');
+            // Authentication failed
+            return Redirect::back()->withInput()->withErrors(['error' => 'Invalid credentials. Please try again.']);
         }
     }
-    
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('login');
-    }
+
 }
+

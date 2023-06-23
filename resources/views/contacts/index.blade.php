@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="container">
-    <div class="slogan">
-        <h1>Phone Book</h1>
-    </div>
+        <div class="slogan">
+            <h1>Phone Book</h1>
+        </div>
         <a href="{{ route('contacts.create') }}" class="addcontact">Add Contact</a>
         <div class="text-center">
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+            @if (session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
         </div>
         <table class="table">
             <thead>
@@ -40,6 +40,5 @@
         </table>
         
         {{ $contacts->links() }}
-        
     </div>
 @endsection
