@@ -25,7 +25,7 @@ class RegisterController extends Controller
         $user = new User();
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
-        $user->password = bcrypt($validatedData['password']); // Hash the password
+        $user->password = $validatedData['password']; // Hash the password
         $user->save();
 
         // Redirect the user to the desired page after successful registration
