@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
+use App\Models\User;
 class LoginController extends Controller
 {
     public function showLoginForm()
@@ -16,23 +15,19 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $validatedData = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
-    
-        $email = $credentials['email'];
-        $password = $credentials['password'];
-    
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            // Authentication passed
-            return redirect()->route('contacts.index');
-        } else {
-            // Authentication failed
-            return Redirect::back()->withInput()->withErrors(['error' => 'Invalid credentials. Please try again.']);
+
+        $user = User::where('email', $validatedData['email'])->first();
+
+        if ($user && $user->password === $validatedData['password']) {
+            $request->session()->put('email', $user->email);
+            return redirect('/')->with('success', 'Sign in completed successfully!');
         }
+
+        return redirect()->back()->withErrors(['message' => 'Invalid email or password.']);
     }
-
-
 }
 

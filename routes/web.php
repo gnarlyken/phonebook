@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
-    return view('loginpage');
-})->name('loginpage');
+    return view('index');
+})->name('index');
 
 // Authentication routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('loginpage');
@@ -23,7 +23,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 // Protected routes that require authentication
 Route::middleware(['auth'])->group(function () {
     // Index route
-    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+    Route::get('/contacts', [ContactController::class, 'index'])->name('index');
 
     // Other routes...
     Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
@@ -32,3 +32,4 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/contacts/{contact}', [ContactController::class, 'update'])->name('contacts.update');
     Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 });
+
