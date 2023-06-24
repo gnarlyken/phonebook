@@ -8,16 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\User;
 
 
+
+
 class Contacts extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'name',
-        'phone_number',
-        'email',
-        // Add other relevant fields
-    ];
+    protected $fillable = ['name', 'phone_number', 'email', 'user_id'];
 
     public function user()
     {

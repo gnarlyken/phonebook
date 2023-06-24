@@ -12,7 +12,7 @@
             @endif
         </div>
 
-        @if (isset($contacts) && !$contacts->isEmpty())
+        @if (isset($contacts) && !$contacts->isEmpty() && $contacts->count() > 0)
         <table class="table">
                 <thead>
                     <tr>
@@ -42,8 +42,8 @@
             </table>
 
       
-        @else
-        <h5 style="max-width: 300px; margin: 0 auto;">Database is empty</h5>
+        
+        
         @endif
 
     </div>

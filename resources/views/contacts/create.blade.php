@@ -13,7 +13,6 @@
                 </ul>
             </div>
         @endif
-        
         <form action="{{ route('contacts.store') }}" method="POST">
             @csrf
             <div class="addbox"> 

@@ -14,9 +14,14 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 // Authentication routes
+
+   
+
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/main', [ContactController::class, 'index'])->name('home');
+
+
+Route::get('/main', [ContactController::class, 'index'])->name('main');
 
 
 
@@ -24,12 +29,19 @@ Route::get('/create', function () {
     return view('contacts.create');
 })->name('contact.create');
 
-Route::post('/store', [ContactController::class, 'store'])->name('contacts.store');
 
-Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
+Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
+
+Route::post('/main', [ContactController::class, 'store'])->name('contacts.store'); // Updated route
+
+
+
+
+Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
+Route::put('/contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
+
+
 
 Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
-
-
 
 
