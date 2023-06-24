@@ -4,12 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToContacts extends Migration
+return new class extends Migration
 {
     public function up()
     {
         Schema::table('contacts', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -21,4 +21,4 @@ class AddUserIdToContacts extends Migration
             $table->dropColumn('user_id');
         });
     }
-}
+};
