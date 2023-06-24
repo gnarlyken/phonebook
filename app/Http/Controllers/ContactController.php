@@ -10,8 +10,9 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contacts::paginate(10);
-    
+        
+        $contacts = Contacts::all();
+
         return view('index')->with('contacts', $contacts);
     }
     
@@ -30,9 +31,9 @@ class ContactController extends Controller
             // Add validation rules for other relevant fields
         ]);
 
-        Contacts::create($validatedData);
+        $contacts=Contacts::all();
 
-        return redirect()->route('contacts.index')->with('success', 'Contact created successfully.');
+        return redirect('/main')->with('contacts', $contacts)->with('success', 'Contact created successfully.');
     }
 
     public function edit(Contacts $contact)
@@ -41,23 +42,25 @@ class ContactController extends Controller
     }
 
     public function update(Request $request, Contacts $contact)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'phone_number' => 'required',
-            'email' => 'required|email',
-            // Add validation rules for other relevant fields
-        ]);
+{
+    $validatedData = $request->validate([
+        'name' => 'required',
+        'phone_number' => 'required',
+        'email' => 'required|email',
+        // Add validation rules for other relevant fields
+    ]);
 
-        $contact->update($validatedData);
+    $contact->update($validatedData);
 
-        return redirect()->route('contacts.index')->with('success', 'Contact updated successfully.');
-    }
+    return redirect()->route('main')->with('success', 'Contact updated successfully.');
+}
 
     public function destroy(Contacts $contact)
     {
         $contact->delete();
 
-        return redirect()->route('contacts.index')->with('success', 'Contact deleted successfully.');
+       return redirect('/main')->with('success', 'Contact deleted successfully.');
+       
+
     }
 }
