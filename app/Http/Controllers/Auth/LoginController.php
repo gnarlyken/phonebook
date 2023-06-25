@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -23,10 +23,11 @@ class LoginController extends Controller
         $user = User::where('email', $credentials['email'])->first();
 
         if ($user && $user->password === $credentials['password']) {
+            Auth::login($user); // Log in the user
             return redirect('/main')->with('success', 'Sign in completed successfully!');
         }
 
-        return redirect()->back()->withErrors(['message' => 'Invalid nickname or password.']);
+        return redirect()->back()->withErrors(['message' => 'Invalid email or password.']);
     }
     
 }

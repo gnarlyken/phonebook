@@ -12,11 +12,12 @@ class ContactController extends Controller
 {
     public function index()
     {
-        
-        $contacts = Contacts::all();
-
+        $user = Auth::user();
+        $contacts = $user->contacts;
+    
         return view('index')->with('contacts', $contacts);
     }
+    
     
 
     public function create()
@@ -74,6 +75,10 @@ class ContactController extends Controller
        return redirect('/main')->with('success', 'Contact deleted successfully.');
        
 
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
     
 }
