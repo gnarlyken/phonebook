@@ -19,6 +19,34 @@ class ContactController extends Controller
     }
     
     
+    public function sorting(Request $request)
+    {
+        $user = Auth::user();
+        $sort = $request->get('sort');
+
+        if ($sort === 'name_asc') {
+            $contacts = Contacts::orderBy('name', 'asc')->get();
+        } elseif ($sort === 'name_desc') {
+            $contacts = Contacts::orderBy('name', 'desc')->get();
+        } else {
+            $contacts = $user->contacts;
+        }
+
+        return view('index')->with('contacts', $contacts);
+    }
+    public function search(Request $request)
+    {
+        $user = Auth::user();
+        $search = $request->get('search');
+    
+        $contacts = Contacts::where('user_id', $user->id)
+            ->where('name', 'like', '%'.$search.'%')
+            ->get();
+    
+        return view('index')->with('contacts', $contacts);
+    }
+    
+
 
     public function create()
     {

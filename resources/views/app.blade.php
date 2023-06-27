@@ -73,6 +73,7 @@
         text-align: center;
         color: green;
         margin-top: 2%;
+        margin-bottom: 2%;
     }
    .editbox{
         width: 17%;
@@ -155,6 +156,38 @@ color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
 }
+
+
+
+.sort-container {
+  
+  justify-content: center;
+  margin-bottom: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.search-container{
+    
+    justify-content: left;
+    margin-left: 350px;
+}
+.search-button{
+    margin-left: 10px;
+    background-color: cadetblue;
+    color: white;
+}
+.search-button:hover{
+    color: black;
+}
+
+.sorttext{
+    margin-left: 252px;
+}
+
+.allsort{
+    display: flex;
+}
+
 .emailtext{
     margin-right: 66px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

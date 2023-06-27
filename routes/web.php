@@ -44,6 +44,10 @@ Route::put('/contacts/{id}', [ContactController::class, 'update'])->name('contac
 
 Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
+Route::get('/contacts/sorting', [ContactController::class, 'sorting'])->name('contacts.sorting');
+
+Route::get('/contacts/search', [ContactController::class, 'search'])->name('contacts.search');
+
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
