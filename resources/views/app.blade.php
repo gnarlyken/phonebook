@@ -148,17 +148,21 @@ color: white;
     color: black;
 }
 .nametext{
-    margin-right: 71px;
+    margin-right: 60px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .phonetext{
-    margin-right: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
 }
 .emailtext{
-    margin-right: 76px;
+    margin-right: 66px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form-group{
+    width: 200%;
+
 }
 
 .containerR{
