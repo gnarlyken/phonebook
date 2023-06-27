@@ -80,5 +80,7 @@ class ContactController extends Controller
     {
         $this->middleware('auth');
     }
+
+
     
 }

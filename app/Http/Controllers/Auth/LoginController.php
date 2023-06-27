@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+
 class LoginController extends Controller
 {
     public function showLoginForm()
@@ -28,6 +29,12 @@ class LoginController extends Controller
         }
 
         return redirect()->back()->withErrors(['message' => 'Invalid email or password.']);
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        return redirect()->route('loginpage');
     }
     
 }

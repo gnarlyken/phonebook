@@ -23,6 +23,9 @@
         body {
             background-color: rgb(247, 247, 247);
         }
+        .font-weight-normal{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
     </style>
 </head>
 

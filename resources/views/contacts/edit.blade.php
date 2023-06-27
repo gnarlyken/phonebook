@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <div class="container">
+    <div class="containerR">
         <h1>Edit Contact</h1>
         
         @if ($errors->any())
@@ -20,20 +20,20 @@
         
             <div class="editbox">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name" class="nametext">Name</label>
                     <input type="text" name="name" id="name" class="form-control" value="{{ $contact->name }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone_number">Phone Number</label>
+                    <label for="phone_number" class="phonetext">Phone Number</label>
                     <input type="text" name="phone_number" id="phone_number" class="form-control" value="{{ $contact->phone_number }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email" class="emailtext">Email</label>
                     <input type="email" name="email" id="email" class="form-control" value="{{ $contact->email }}" required>
                 </div>
                 <!-- Add other relevant fields -->
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
+                <button type="submit" class="btn btn-primary ">Update</button>
+            </div> 
         </form>
     </div>
 @endsection
